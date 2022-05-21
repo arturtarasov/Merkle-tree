@@ -35,18 +35,6 @@ contract Tree {
     }
 
     function verify(string memory transaction, uint index, bytes32 root, bytes32[] memory proof) public pure returns(bool) {
-// "TX3: John -> Mary"
-// 2
-// 0xa0da473a78c18b28d88660e9e845ae6ff6b0cc3e7e6901a4fc8cad162a6aaba8
-// 0xdca11aec2d04146b1bbc933b1447aee4927d081c9274fcc6d02809b4ee2e56d8
-// 0x58e9a664a4c1e26694e09437cad198aebc6cd3c881ed49daea6e83e79b77fead
-//        ROOT
-
-//   H1-2      H3-4
-
-// H1   H2   H3   H4
-
-// TX1  TX2  TX3  TX4
         bytes32 hash = makeHash(transaction);
         for(uint i = 0; i < proof.length; i++) {
             bytes32 element = proof[i];
